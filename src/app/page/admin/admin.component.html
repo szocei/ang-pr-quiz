@@ -1,0 +1,79 @@
+<div class="row">
+    <div class="col-md-12">
+
+
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title ">Quizzes</h4>
+                <p class="card-category">The list of quiz.</p>
+            </div>
+        </div>
+
+        <div class="container py-3">
+            <div class="row">
+                <div class="col-12 col-lg-5">
+                    <button class="btn btn-success btn-block" [routerLink]="[0]">
+                        <i class="fa fa-edit"></i>
+                        Create Quiz
+                    </button>
+                </div>
+                <div class="col-12 col-lg-3 ">
+                    <select [(ngModel)]="filterKey" class="form-control">
+                        <option *ngFor="let key of filterKeys" [value]="key">
+                            {{ key }}
+                        </option>
+                    </select>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search"
+                            (keyup)="onChangePhrase($event)">
+                        <!-- <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button> -->
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class=" text-primary">
+                        <th class="sorter-header" (click)="onSort(col.key)" *ngFor="let col of cols">
+                            <i *ngIf="sorterKey === col.key && sorterDirection === 1" class="fa fa-sort-alpha-asc"></i>
+                            <i *ngIf="sorterKey === col.key && sorterDirection === -1"
+                                class="fa fa-sort-alpha-desc"></i>
+                            {{ col.title }}
+                        </th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        <tr
+                            *ngFor="let quiz of list$ | async | filter:phrase:filterKey | sorter:sorterKey:sorterDirection">
+                            <td *ngFor="let col of cols">
+                                <span *ngIf="!col.type else elseBlock">
+                                    {{ quiz[col.key] }}
+                                </span>
+                                <ng-template #elseBlock>
+                                    <input [checked]="quiz[col.key]" [type]="col.type" class="table-checkbox">
+                                </ng-template>
+                            </td>
+                            <td>
+                                <div class="btn-group">
+                                    <button [routerLink]="[quiz.id]" class="btn btn-info">
+                                        <i class="fa fa-edit"></i>
+                                    </button>
+                                    <button (click)="onRemove(quiz)" class="btn btn-danger">
+                                        <i class="fa fa-trash"></i>
+
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

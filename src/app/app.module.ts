@@ -8,6 +8,17 @@ import { NavComponent } from './common/nav/nav.component';
 import { HomeComponent } from './page/home/home.component';
 import { SorterPipe } from './pipe/sorter.pipe';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { AdminComponent } from './page/admin/admin.component';
+
+import { QuizComponent } from './Page/quiz/quiz.component';
+import { EditquestionComponent } from './Page/editquestion/editquestion.component';
+import { EditquizComponent } from './Page/editquiz/editquiz.component';
+import { EditstudentComponent } from './Page/editstudent/editstudent.component';
+import { FilterPipe } from './pipe/filter.pipe';
+import { FormsModule } from '@angular/forms';
+
+
+
 
 
 @NgModule({
@@ -16,12 +27,25 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     StudentListComponent,
     NavComponent,
     HomeComponent,
-    SorterPipe
+    SorterPipe,
+    AdminComponent,
+   
+    QuizComponent,
+   
+    EditquestionComponent,
+   
+    EditquizComponent,
+   
+    EditstudentComponent,
+   
+    FilterPipe,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
