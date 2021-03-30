@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { CheckboxControlValueAccessor } from '@angular/forms';
 
 
 export interface ITableCol {
@@ -23,6 +24,7 @@ export class ConfigService {
     {
       key: 'id',
       title: '#',
+      visible:false,
     },
     {
       key: 'name',
@@ -42,7 +44,8 @@ export class ConfigService {
     {
       key: 'active',
       title: 'Active',
-      
+     visible:true,
+     
     },
   ];
 

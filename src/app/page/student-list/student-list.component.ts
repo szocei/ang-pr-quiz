@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { Student } from 'src/app/model/student';
 import { ConfigService, ITableCol } from 'src/app/service/config.service';
 import { StudentService } from 'src/app/service/student.service';
@@ -11,15 +12,24 @@ import { StudentService } from 'src/app/service/student.service';
 })
 export class StudentListComponent implements OnInit {
 
-  list$: Observable<Student[]> = this.studentService.list$;
-  cols: ITableCol[] = this.config.studentTableColumns;
+  list$: BehaviorSubject<Student[]>| Observable<Student[]> = this.studentService.list$;
+  
+  cols: ITableCol[] = this.config.studentTableColumns.filter(
+    col => col.visible
+  );
+ 
+  
 
   sorterKey: string = '';
   sorterDirection: number = 1;
 
+  filterKey: string = 'title';
+filterKeys: string[] = Object.keys(new Student());
+
   constructor(
     private studentService: StudentService,
     private config: ConfigService,
+    private router:Router,
   ) { }
 
   ngOnInit(): void {
@@ -34,6 +44,20 @@ export class StudentListComponent implements OnInit {
     }
 
     this.sorterKey = key;
+  }
+onRemove(student:Student):void{
+this.studentService.remove(student);
+this.router.navigate(['student']);
+
+
+}
+phrase:string='';
+
+onChangePhrase(event:any): void{
+    this.phrase = (event.target as HTMLInputElement).value;
+    
+   
+  
   }
 
 }

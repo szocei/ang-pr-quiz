@@ -49,8 +49,8 @@
                         <th></th>
                     </thead>
                     <tbody>
-                        <tr
-                            *ngFor="let quiz of list$ | async | filter:phrase:filterKey | sorter:sorterKey:sorterDirection">
+                        <tr *ngFor="let quiz of list$ | async | filter:phrase:filterKey | sorter:sorterKey:sorterDirection"
+                            [hidden]="quiz.id===0">
                             <td *ngFor="let col of cols">
                                 <span *ngIf="!col.type else elseBlock">
                                     {{ quiz[col.key] }}

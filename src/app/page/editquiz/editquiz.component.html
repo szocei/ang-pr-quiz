@@ -1,1 +1,18 @@
-<p>editquiz works!</p>
+<div class="row">
+    <div *ngIf="(quiz$ | async) as quiz" class="col-6 offset-3">
+        <form #editForm="ngForm" (ngSubmit)="onUpdate(editForm, quiz)">
+            <div *ngFor="let field of fields" class="form-group">
+                <label>
+                    <i class="material-icons">{{ field.icon || '&nbsp;' }}</i>
+                    {{ field.title }}
+                </label>
+                <input [(ngModel)]="quiz[field.key]" [name]="field.key" [pattern]="field.pattern || '.*'" type="text"
+                    class="form-control">
+            </div>
+            <button [disabled]="editForm.invalid || updating" type="submit" class="btn btn-primary btn-block btn-lg">
+                <i *ngIf="!updating" class="fa fa-save"></i>
+                <i *ngIf="updating" class="fa fa-refresh"></i>
+            </button>
+        </form>
+    </div>
+</div>
