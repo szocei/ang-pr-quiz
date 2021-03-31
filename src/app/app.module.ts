@@ -16,6 +16,8 @@ import { EditquizComponent } from './Page/editquiz/editquiz.component';
 import { EditstudentComponent } from './Page/editstudent/editstudent.component';
 import { FilterPipe } from './pipe/filter.pipe';
 import { FormsModule } from '@angular/forms';
+import { CardComponent } from './common/card/card.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -39,13 +41,16 @@ import { FormsModule } from '@angular/forms';
     EditstudentComponent,
    
     FilterPipe,
+   
+    CardComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
