@@ -3,9 +3,7 @@
     {
       "id": 0,
       "question": "",
-      "answer": [
-       
-      ],
+      "answer": [],
       "points": 0,
       "active": ""
     },
@@ -1170,7 +1168,7 @@
     },
     {
       "id": 2,
-      "title": "Maîtresse (Mistress)",
+      "title": "Php alapok",
       "description": "praesent lectus vestibulum quam sapien",
       "questions": [
         6,
@@ -1183,7 +1181,7 @@
     },
     {
       "id": 3,
-      "title": "Peter Ibbetson",
+      "title": "Php középszint",
       "description": "curae donec pharetra magna vestibulum aliquet ultrices erat",
       "questions": [
         11,
@@ -1196,7 +1194,7 @@
     },
     {
       "id": 4,
-      "title": "Beer League",
+      "title": "PHP haladó",
       "description": "blandit nam nulla integer pede justo lacinia",
       "questions": [
         16,
@@ -1209,7 +1207,7 @@
     },
     {
       "id": 5,
-      "title": "Enfer, L'",
+      "title": "Html alap",
       "description": "vel ipsum praesent blandit lacinia erat vestibulum sed",
       "questions": [
         21,
@@ -1222,7 +1220,7 @@
     },
     {
       "id": 6,
-      "title": "Benigni",
+      "title": "Html közép",
       "description": "orci luctus et ultrices posuere cubilia curae",
       "questions": [
         26,
@@ -1235,7 +1233,7 @@
     },
     {
       "id": 7,
-      "title": "Nobody's Baby",
+      "title": "Html haladó",
       "description": "sagittis dui vel nisl duis ac nibh",
       "questions": [
         31,
@@ -1248,7 +1246,7 @@
     },
     {
       "id": 8,
-      "title": "Greenberg",
+      "title": "CSS alap",
       "description": "id consequat in consequat ut nulla sed accumsan",
       "questions": [
         36,
@@ -1261,7 +1259,7 @@
     },
     {
       "id": 9,
-      "title": "Tokyo Sonata",
+      "title": "CSS közép",
       "description": "proin at turpis a pede",
       "questions": [
         41,
@@ -1274,7 +1272,7 @@
     },
     {
       "id": 10,
-      "title": "National Lampoon's Vacation",
+      "title": "CSS haladó",
       "description": "pellentesque ultrices phasellus id sapien",
       "questions": [
         46,

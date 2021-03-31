@@ -5,6 +5,7 @@ import { StudentListComponent } from './page/student-list/student-list.component
 import { AdminComponent } from './page/admin/admin.component';
 import { EditstudentComponent } from './page/editstudent/editstudent.component';
 import { EditquizComponent } from './Page/editquiz/editquiz.component';
+import { QuizComponent } from './page/quiz/quiz.component';
 
 
 
@@ -12,6 +13,10 @@ import { EditquizComponent } from './Page/editquiz/editquiz.component';
 const routes: Routes = [
   {
     path:'',
+    component:HomeComponent
+  },
+  {
+    path:'home',
     component:HomeComponent
   },
   {
@@ -29,6 +34,10 @@ const routes: Routes = [
   {
     path:'admin/:id',
     component:EditquizComponent
+  },
+  {
+    path: 'home/:id',
+    component:QuizComponent
   },
   {
     path:'**',

@@ -1,7 +1,8 @@
 <h1 class="text-center pt-8">Kitölthető QUIZEINK</h1>
 <div class="row">
     <div *ngFor="let card of list$ | async" [hidden]="card.id===0" class="col-lg-3 col-md-6 col-sm-6 card ">
-        <app-card cardClass="cardClass" [title]="card.title" [description]="card.description" [footer]="card.active">
+        <app-card cardClass="bg-info" [title]="card.title" [description]="card.description" [footer]="card.active"
+            [link]="card.id">
         </app-card>
     </div>
 </div>

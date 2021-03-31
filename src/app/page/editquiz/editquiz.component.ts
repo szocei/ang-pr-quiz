@@ -33,10 +33,10 @@ export class EditquizComponent implements OnInit {
   onUpdate(ngForm: NgForm, quiz: Quiz): void {
     if(quiz.id===0){
        this.quizService.create(quiz).subscribe(
-      creat => this.router.navigate(['quiz'])
+      creat => this.router.navigate(['admin'])
     );}else{
        this.quizService.update(quiz).subscribe(
-      saved => this.router.navigate(['quiz'])
+      saved => this.router.navigate(['admin'])
     );
     }
 

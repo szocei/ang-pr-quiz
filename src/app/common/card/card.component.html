@@ -1,12 +1,18 @@
-<div class="card card-stats m-3 ">
-    <div class="{{ cardClass }}">
-        <h3 class="card-category bg-info">{{ title }}</h3>
-        <h5 class="card-title">{{ description }}</h5>
+<div class="card card-stats m-3 {{ cardClass }} " [hidden]="cardId">
+    <div class="">
+        <h3 class="card-category text-center">{{ title }}</h3>
+        <h5 class="card-title bg-light">{{ description }}</h5>
     </div>
-    <div class="card-footer my-auto ">
-        <div class="stats ">
-            {{ footer }}
-        </div>
+    <div *ngIf="footer" class="card-footer my-auto bg-primary text-center">
+        <strong>
+            Kitölthető a teszt!
+        </strong>
     </div>
-    <button class="btn btn-block btn-success">Ugrás a Quizre</button>
+    <div *ngIf="!footer" class="card-footer my-auto bg-danger text-center">
+        <strong>
+            A teszt nem aktív!
+        </strong>
+
+    </div>
+    <button class="btn btn-block btn-success" [routerLink]="[link]">Ugrás a Quizre</button>
 </div>
