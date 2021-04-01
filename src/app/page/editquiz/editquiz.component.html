@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
     <div *ngIf="(quiz$ | async) as quiz" class="col-6 offset-3">
         <form #editForm="ngForm" (ngSubmit)="onUpdate(editForm, quiz)">
             <div *ngFor="let field of fields" class="form-group">
@@ -6,7 +6,7 @@
                     <i class="material-icons">{{ field.icon || '&nbsp;' }}</i>
                     {{ field.title }}
                 </label>
-                <input [(ngModel)]="quiz[field.key]" [name]="field.key" [pattern]="field.pattern || '.*'" type="text"
+                <input [(ngModel)]="quiz[field.key]" [name]="field.key" [pattern]="field.pattern || '.*'"
                     class="form-control">
             </div>
             <button [disabled]="editForm.invalid || updating" type="submit" class="btn btn-primary btn-block btn-lg">
@@ -14,5 +14,63 @@
                 <i *ngIf="updating" class="fa fa-refresh"></i>
             </button>
         </form>
+    </div>
+</div> -->
+
+<div class="content">
+    <div class="row">
+
+        <div *ngIf="(quiz$ | async) as quiz" class="col-6 offset-3">
+            <form #editForm="ngForm" (ngSubmit)="onUpdate(editForm, quiz)">
+
+
+                <div class="form-group">
+                    <label for="">Title</label>
+                    <input required name="title" [(ngModel)]="quiz.title" type="text" class="form-control"
+                        pattern=".{4,30}">
+                    <div [hidden]="editForm.controls.title?.valid" class="error-message">
+                        A cím minimum 4 és maximum 30 karakterből állhat!
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Description</label>
+                    <input required name="description" [(ngModel)]="quiz.description" type="text" class="form-control"
+                        pattern=".{5,50}">
+                    <div [hidden]="editForm.controls.description?.valid" class="error-message">
+                        A leírás minimum 5 és maximum 50 karakterből állhat!
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Questions</label>
+                    <input required name="questions" [(ngModel)]="quiz.questions" class="form-control"
+                        pattern=".{0,25}">
+                    <div [hidden]="editForm.controls.questions?.valid" class="error-message">
+                        Ez csak szán lehet!
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label>Active</label>
+                    <!-- No validation. -->
+                    <select [(ngModel)]="quiz.active" name="active" class="form-control">
+                        <option [ngValue]="true">active</option>
+                        <option [ngValue]="false">inactive</option>
+                    </select>
+                </div>
+
+
+
+
+
+                <button [disabled]="editForm.invalid " type="submit" class="btn btn-primary btn-block btn-lg">
+                    <i class="fa fa-save"></i>
+
+                </button>
+            </form>
+        </div>
+
     </div>
 </div>

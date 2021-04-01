@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { Student } from 'src/app/model/student';
 import { ConfigService, ITableCol } from 'src/app/service/config.service';
@@ -14,8 +14,17 @@ import { StudentService } from 'src/app/service/student.service';
 })
 export class EditstudentComponent implements OnInit {
 
- student$: Observable<Student> = this.activatedRoute.params.pipe(
-    switchMap( params => this.studentService.get(params.id) )
+//  student$: Observable<Student> = this.activatedRoute.params.pipe(
+//     switchMap( params => this.studentService.get(params.id) )
+//   );
+    student$: Observable<Student> = this.activatedRoute.params.pipe(
+    switchMap( params => {
+      if (Number(params.id) === 0) {
+        return of(new Student());
+      }
+
+      return this.studentService.get(Number(params.id));
+    })
   );
 
   fields: ITableCol[] = this.config.studentTableColumns.filter(col=>col.visible);
@@ -32,14 +41,12 @@ export class EditstudentComponent implements OnInit {
 
   onUpdate(ngForm: NgForm, student: Student): void {
     if(student.id===0){
-       this.studentService.create(student).subscribe(
-      creat => this.router.navigate(['student'])
-    );}else{
-       this.studentService.update(student).subscribe(
-      saved => this.router.navigate(['student'])
-    );
+       this.studentService.create(student)
+    }else{
+       this.studentService.update(student)
+      }
+this.router.navigate(['student'])
     }
-
    
   }
   // updating:boolean=false;
@@ -59,4 +66,4 @@ export class EditstudentComponent implements OnInit {
 
     
   // }
-}
+

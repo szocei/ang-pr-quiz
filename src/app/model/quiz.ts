@@ -4,7 +4,7 @@ export class Quiz {
     id:number=0;
     title:string='';
     description:string='';
-    question:number[]=[];
+    questions:number[]=new Array();
     active:boolean=true;
 
 

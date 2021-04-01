@@ -49,8 +49,8 @@
                             <th></th>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let student of list$ | async | filter:phrase:filterKey | sorter:sorterKey:sorterDirection"
-                                [hidden]="student.id===0">
+                            <tr
+                                *ngFor="let student of list$ | async | filter:phrase:filterKey | sorter:sorterKey:sorterDirection">
                                 <td *ngFor="let col of cols">
                                     <span *ngIf="!col.type else elseBlock">
                                         {{ student[col.key] }}

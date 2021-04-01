@@ -1,1 +1,36 @@
-<p>quiz works!</p>
+<div class="main-container">
+    <div class="content-container" *ngIf="quiz$|async as q">
+        <div class="d-none">{{q.id}}</div>
+        <h1>{{q.title}}</h1>
+        <h2 class="hide">{{q.description}}</h2>
+        <h3>{{q.questions[0]}}</h3>
+        <div *ngFor="let qnumber of q.questions">
+            <div class="question" *ngFor="let que of question$|async">
+                <!-- <div *ngIf="que.id<=q.questions[4] && que.id>=q.questions[0]"> -->
+                <div *ngIf="que.id===qnumber">
+                    <div class="question">{{que.id}}. kérdés: {{que.question}}</div>
+                    <div>{{que.points}} pont</div>
+                    <div>Aktív:{{que.active}} </div>
+
+
+                    <ul class="hide">
+                        <li>A<input type="checkbox" class="check-opt" value="{{que.answer1.correct}}"><span
+                                class="option">{{que.answer1.content}}</span>
+                        </li>
+                        <li>B<input type="checkbox" class="check-opt" value="{{que.answer2.correct}}"><span
+                                class="option">{{que.answer2.content}}</span></li>
+                        <li>C<input type="checkbox" class="check-opt" value="{{que.answer3.correct}}"><span
+                                class="option">{{que.answer3.content}}</span>
+                        </li>
+
+                    </ul>
+                    <div class="answer hide"></div>
+                    <button class="get-answer hide">Válasz</button>
+                    <button class="next hide">Következő kérdés</button>
+                    <button class="start-button">Indulhat a kvíz!</button>
+                    <div class="counter"></div>
+                    <div class="quiz-result hide"></div>
+                </div>
+            </div>
+        </div>
+    </div>

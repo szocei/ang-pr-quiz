@@ -23,7 +23,7 @@ export class StudentListComponent implements OnInit {
   sorterKey: string = '';
   sorterDirection: number = 1;
 
-  filterKey: string = 'title';
+  filterKey: string = 'name';
 filterKeys: string[] = Object.keys(new Student());
 
   constructor(

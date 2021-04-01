@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CheckboxControlValueAccessor } from '@angular/forms';
+
 
 
 export interface ITableCol {
@@ -24,7 +24,7 @@ export class ConfigService {
     {
       key: 'id',
       title: '#',
-      visible:false,
+      visible:true,
     },
     {
       key: 'name',
@@ -40,11 +40,13 @@ export class ConfigService {
       key: 'points',
       title:'Points',
       visible: true,
+     
     },
     {
       key: 'active',
       title: 'Active',
      visible:true,
+    
      
     },
   ];
@@ -68,6 +70,9 @@ export class ConfigService {
       key: 'questions',
       title: 'Questions',
       visible: true,
+      
+      
+      
     },
     {
       key: 'active',
@@ -93,13 +98,18 @@ export class ConfigService {
       visible: true,
     },
     {
-      key: 'catID',
-      title: 'Category',
+      key: 'answer1',
+      title: 'Answer1',
       visible: true,
     },
     {
-      key: 'answer',
-      title: 'Answer',
+      key: 'answer2',
+      title: 'Answer2',
+      visible: true,
+    },
+    {
+      key: 'answer3',
+      title: 'Answer3',
       visible: true,
     },
     {
