@@ -27,7 +27,7 @@ export class EditstudentComponent implements OnInit {
     })
   );
 
-  fields: ITableCol[] = this.config.studentTableColumns.filter(col=>col.visible);
+  fields: ITableCol[] = this.config.studentEditTableColumns.filter(col=>col.visible);
 
   constructor(
     private studentService: StudentService,

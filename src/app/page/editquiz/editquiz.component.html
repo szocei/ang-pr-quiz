@@ -44,8 +44,8 @@
 
                 <div class="form-group">
                     <label for="">Questions</label>
-                    <input required name="questions" [(ngModel)]="quiz.questions" class="form-control"
-                        pattern=".{0,25}">
+                    <input required name="questions" [(ngModel)]="kerdes" class="form-control" pattern=".{0,25}"
+                        type="number">
                     <div [hidden]="editForm.controls.questions?.valid" class="error-message">
                         Ez csak szán lehet!
                     </div>

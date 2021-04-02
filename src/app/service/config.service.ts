@@ -51,6 +51,41 @@ export class ConfigService {
     },
   ];
 
+studentEditTableColumns: ITableCol[] = [
+    {
+      key: 'id',
+      title: '#',
+      visible:true,
+      type:'number',
+    },
+    {
+      key: 'name',
+      title: 'Name',
+      visible: true,
+      type:'text',
+    },
+    {
+      key: 'email',
+      title: 'Email',
+      visible: true,
+      type:'email',
+    },
+    {
+      key: 'points',
+      title:'Points',
+      visible: true,
+      type:'number',
+     
+    },
+    {
+      key: 'active',
+      title: 'Active',
+     visible:true,
+    
+     
+    },
+  ];
+
   quizTableColumns: ITableCol[] = [
     {
       key: 'id',

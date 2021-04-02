@@ -44,14 +44,17 @@ export class EditquizComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  kerdes:number;
   onUpdate(ngForm: NgForm, quiz: Quiz): void {
     if(quiz.id===0){
+      quiz.questions.push(this.kerdes),
        this.quizService.create(quiz)
        
       
     }else{
-       this.quizService.update(quiz)
+      
+      quiz.questions.push(this.kerdes),
+      this.quizService.update(quiz)
     }
     this.router.navigate(['admin'])
     }

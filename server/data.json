@@ -1173,7 +1173,13 @@
       "id": 11,
       "title": "Milyen processzorok vannak?",
       "description": "Ez egy rövid teszt a processzorokról",
-      "questions": [1,2,3,4],
+      "questions": [
+        5,
+        1,
+        2,
+        3,
+        4
+      ],
       "active": true
     },
     {
@@ -1181,29 +1187,38 @@
       "title": "Próbateszt",
       "description": "Ez egy próba a tömb bevitelre",
       "active": false,
-      "questions": [1,2,3]
+      "questions": [
+        2.3,
+        4,
+        1,
+        2,
+        3
+      ]
     },
     {
       "id": 13,
-      "title": "pppere",
-      "description": "papas",
-      "questions": [1,10,3],
-      "active": false
+      "title": "Új teszt",
+      "description": "Ez egy új teszt lesz",
+      "questions": [
+        18,
+        32
+      ],
+      "active": true
     }
   ],
   "students": [
     {
       "id": 4,
       "name": "Benedikt Kerrington",
-      "email": "bfunnell3@narod.ru",
-      "points": "22",
+      "email": "233",
+      "points": "25",
       "active": true
     },
     {
       "id": 5,
       "name": "Etty Acres",
       "email": "eacres4@is.gd",
-      "points": 79,
+      "points": "59",
       "active": false
     },
     {
